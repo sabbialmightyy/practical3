@@ -3,8 +3,8 @@ class DSAqueue():
 
     def __init__(self, maxcapacity=None):
         if maxcapacity is None:
-            maxcapacity = DSAsqueue.defaultcapacity
-        self.queue0 = [0] * maxcapacity  # Allocate stack array 
+            maxcapacity = DSAqueue.defaultcapacity
+        self.queue = [0] * maxcapacity  
         self.count = 0        
 
     def getCount(self):
@@ -14,20 +14,20 @@ class DSAqueue():
         return self.count == 0
 
     def isFull(self):
-        return self.count == len(self.stack)
+        return self.count == len(self.queue)
 
     def push(self, value):
         if self.isFull():
-            raise Exception("Stack is full. Cannot push value.")
+            raise Exception("Queue is full. Cannot push value.")
         else:
-            self.stack[self.count] = value
+            self.queue[self.count] = value
             self.count += 1
     
     def top(self):
         if self.isEmpty():
             raise Exception("Stack is empty. Nothing to see.") 
         else:
-            return self.stack[self.count-1] 
+            return self.queue[self.count-1] 
 
     def pop(self):
         if self.isEmpty():
